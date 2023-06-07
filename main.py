@@ -22,8 +22,11 @@ new_model = tf.keras.models.load_model('MNIST_model.h5')
 
 # Load anh len
 ori_img = st.file_uploader("Choose MNIST image (Pleaseee only choose the MNIST digit image")
-st.image(ori_img, caption="Input image")
+
 if not (ori_img is None):
+    # Hien thi hinh anh
+    st.image(ori_img, caption="Input image")
+    
     # Xu ly anh
     img = Image.open(ori_img).convert("L").resize((28, 28))
     x = tf.keras.preprocessing.image.img_to_array(img)[np.newaxis, ...]
